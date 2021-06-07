@@ -33,7 +33,8 @@ def register(request):
     if request.method == 'POST':
         uname = request.POST.get('username')# Retriving username from registration form
         pwd = request.POST.get('password')# Retriving password from registration form
-        email=request.POST.get("email")# Retriving mobile number from registration form
+        email=request.POST.get("email")# Retriving email_id from registration form
+        mobile=request.POST.get('mobile_number')#Retriving mobile number from registration form
         if User.objects.filter(username=uname).count() > 0:# checks if username already exits or not
             return HttpResponse('Username already exists.')
         else:
