@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+    <form enctype="multipart/form-data" method="post" action="{% url 'pr1:profile' %}">
+        <div class="flex-container">
+        <input type="file" name="file" >
+        <input type="button" value="submit">
+        </div>
+    </form>
+
+{% endblock %}

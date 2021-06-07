@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Register</title>
+		<link rel="stylesheet" href="{% static "style.css" %}">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	<style>
+        body {
+  	background-color: #ed91db;
+  	margin: 0;
+}
+    </style>
+    </head>
+	<body>
+		<div class="register">
+			<h1>Register</h1>
+			<div class="links">
+				<a href="{% url 'pr1:index' %}">Login</a>
+				<a href="{% url 'pr1:register' %}" class="active">Register</a>
+			</div>
+			<form action="{% url 'pr1:register' %}" role="form" data-toggle="validator" method="post" autocomplete="off">
+				 {% csrf_token %}
+                <div class="form-group">
+                    <div class="flex-container">
+                        <label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				        <input type="text" class="form-control" name="username" maxlength="10" minlength="3"
+                            pattern="^[a-zA-Z0-9_.-]*$" placeholder="Username" id="username" required>
+                    </div>
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <div class="flex-container">
+				        <label for="email">
+					        <i class="fas fa-envelope"></i>
+				        </label>
+				        <input type="email" name="email" class="form-control" id="email" placeholder="Email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" data-error="invalid email" required>
+                    </div>
+                     <div class="help-block with-errors"></div>
+                </div>
+                  <div class="form-group">
+                    <div class="flex-container">
+				        <label for="mobile number">
+					        <i class="fa fa-phone"></i>
+				        </label>
+				        <input class="form-control" id="number" value="Enter your mobile number(optional)" type="text">
+                    </div>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                <div class="form-group">
+                    <div class="flex-container">
+				        <label for="password">
+					        <i class="fas fa-lock"></i>
+				        </label>
+				        <input input type="password" name="password" data-minlength="4" class="form-control" id="inputPassword"
+                                data-error="Have atleast 4 characters" placeholder="Password" required>
+                    </div>
+                    <div class="help-block with-errors"></div>
+                  </div>
+
+				<input type="submit" value="Register">
+			</form>
+		</div>
+	</body>
+</html>
