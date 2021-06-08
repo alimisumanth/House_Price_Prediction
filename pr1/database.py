@@ -2,7 +2,7 @@ import sqlite3
 import pandas as pd
 from io import StringIO
 
-
+#table creation
 def tablecreation(request):
     with sqlite3.connect("db.sqlite3") as c:
         name = request.FILES["file"]
