@@ -3,11 +3,15 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
-    <form enctype="multipart/form-data" method="post" action="{% url 'pr1:profile' %}">
-        <div class="flex-container">
-        <input type="file" name="file" >
-        <input type="button" value="submit">
-        </div>
-    </form>
+ <div class="profile-form" style="width:800px; margin:15px auto;">
+    <form enctype="multipart/form-data" method="POST" >
+     {% csrf_token %}
 
+        <input type="file" name="file" ><br><br>
+            <button type="submit">Submit</button>
+    </form>
+ </div>
+    <div class="table_data">
+{{ data|safe }}
+    </div>
 {% endblock %}

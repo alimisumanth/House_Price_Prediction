@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import User
-
+from .database import *
 # user homepage
 def profile(request):
-    if 'user' in request.session:
-        return render(request, 'profile.html')# redirects to homepage if user login successfull
+    if request.method == 'POST':
+      return render(request,'profile.html',tablecreation(request))
     else:
-        return redirect('pr1:index')# if user is not logged then redirects to login page
+        return render(request, 'profile.html')  # redirects to homepage if user login successfull
 # logout method
 def logout(request):
     try:
@@ -43,3 +43,5 @@ def register(request):
             return redirect('pr1:index')#redirects to login page
     else:
          return render(request, 'register.html')#redirecting to registration page
+
+

@@ -129,9 +129,10 @@ body.loggedin {
   	background-color: #f3f4f7;
 }
 .content {
-  	width: 1000px;
+  	width: 100%;
   	margin: 0 auto;
 }
+
 .content h2 {
   	margin: 0;
   	padding: 25px 0;
@@ -139,11 +140,33 @@ body.loggedin {
   	border-bottom: 1px solid #e0e0e3;
   	color: #4a536e;
 }
-.content > p, .content > div {
+.content > p{
   	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
   	margin: 25px 0;
   	padding: 25px;
+	border: 1px solid;
+	max-width:100%;
 	background-color: #fff;
+}
+.profile-form{
+  	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  	margin: 25px 0;
+  	padding: 25px;
+	border: 1px solid;
+	max-width:50%;
+	background-color: #fff;
+}
+.table_data{
+  	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+	max-width: fit-content;
+	background-color: #fff;
+	margin: 0 auto;
+	width:auto;
+}
+
+.profile-form > form{
+margin: 0 auto;
+width:250px;
 }
 .content > p table td, .content > div table td {
 	padding: 5px;

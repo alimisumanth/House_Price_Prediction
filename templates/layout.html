@@ -6,6 +6,12 @@
 		<title>{% block title %}{% endblock %}</title>
 		<link rel="stylesheet" href="{% static 'style.css' %}">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+<script type="text/javascript">$(document).ready(function(){$('table').DataTable({
+    "pageLength": 10
+});});</script>
 	</head>
 	<body class="loggedin">
 		<nav class="navtop">
