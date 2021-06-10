@@ -12,14 +12,21 @@
 <script type="text/javascript">$(document).ready(function(){$('table').DataTable({
     "pageLength": 10
 });});
+    $("table").width($(window).width());
 </script>
 	</head>
 	<body class="loggedin">
 		<nav class="navtop">
-			<div>
+			<div style="align-content: start">
 				<h1>Academic projects</h1>
-				<a href="{% url 'pr1:logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
+            <div>
+                <a href="{% url 'pr1:home' %}"><i class="fas fa-home"></i>Home</a>
+                 <a href="{% url 'pr1:model' %}"><i class="fas fa-folder"></i>Model</a>
+            </div>
+            <div style="align-content: end">
+                 <a href="{% url 'pr1:logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+            </div>
 		</nav>
 		<div class="content">
 			{% block content %}{% endblock %}

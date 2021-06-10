@@ -5,8 +5,9 @@ app_name = 'pr1'
 urlpatterns = [
 
     url(r'^$', views.login, name='index'),
-    url(r'^profile/$', views.profile, name='profile'),
+    url(r'^home/$', views.home, name='home'),
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^register/$', views.register, name='register'),
+    url(r'model/$', views.model, name='model')
 ]
 urlpatterns += staticfiles_urlpatterns()

@@ -2,12 +2,18 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import User
 from .database import *
+
 # user homepage
-def profile(request):
+def home(request):
     if request.method == 'POST':
-      return render(request,'profile.html',tablecreation(request))
+      return render(request, 'home.html', tablecreation(request))
     else:
-        return render(request, 'profile.html')  # redirects to homepage if user login successfull
+        if 'user' in request.session:
+            return render(request,'home.html')# redirects to homepage if user login successfull
+        else:
+            return redirect('pr1:index')
+
+
 # logout method
 def logout(request):
     try:
@@ -23,7 +29,7 @@ def login(request):
         check_user = User.objects.filter(username=uname, password=pwd)# check user details in user db
         if check_user:# checks user is valid or not
             request.session['user'] = uname
-            return redirect('pr1:profile')#redirecting to homepage
+            return redirect('pr1:home')#redirecting to homepage
         else:
             return HttpResponse('Please enter valid Username or Password.')# if the user details doesn't match it will prompt invalid credentials
     return render(request, 'login.html')
@@ -44,4 +50,12 @@ def register(request):
     else:
          return render(request, 'register.html')#redirecting to registration page
 
-
+#ml model
+def model(request):
+    if request.method == 'POST':
+        return render(request, 'result.html', modeltraining(request))
+    else:
+        if 'user' in request.session:
+            return render(request, 'model.html')  # redirects to homepage if user login successfull
+        else:
+            return render(request, 'login.html')
