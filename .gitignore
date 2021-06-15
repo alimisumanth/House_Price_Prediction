@@ -10,6 +10,8 @@ __pycache__/
 .idea
 
 pr1/migrations
+pr1/__pycache__/
+academic_projects/__pycache__/
 
 
 # Distribution / packaging
