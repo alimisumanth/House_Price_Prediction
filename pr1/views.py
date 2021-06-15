@@ -20,7 +20,7 @@ def upload(request):
 def logout(request):
     try:
         del request.session['user']  # deleting the session of user
-    except e:
+    except :
         return redirect('pr1:index')  # redirecting to login page
     return redirect('pr1:index')  # redirecting to login page
 

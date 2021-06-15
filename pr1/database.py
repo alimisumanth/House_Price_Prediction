@@ -28,5 +28,4 @@ def model_training():
         model = pickle.load(open('boston_data.pkl', 'rb'))
         prediction = model.predict(x)
         x['prediction'] = prediction
-        print(x.head())
         return x.to_html()
