@@ -3,10 +3,12 @@
 
 {% block title %}Model{% endblock %}
 {% block content %}
+
 <form enctype="multipart/form-data" method="post">
                 {% csrf_token %}
-    <input type="checkbox" name="col1"><label>col1</label>
-    <input type="checkbox" name="col2"><label>col2</label>
-    <button value="submit">Submit</button>
-			</form>
+    <button value="submit" class="button">Submit</button>
+</form>
+
+
+
 {% endblock %}
