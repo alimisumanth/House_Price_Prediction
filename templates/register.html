@@ -1,10 +1,10 @@
 {% load static %}
-<!DOCTYPE html>
+
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>Register</title>
-		<link rel="stylesheet" href="{% static "style.css" %}">
+		<link rel="stylesheet" href="{% static 'style.css' %}">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
@@ -16,7 +16,7 @@
 }
     </style>
     </head>
-	<body>
+	<body class="lr_body">
 		<div class="register">
 			<h1>Register</h1>
 			<div class="links">
@@ -50,7 +50,7 @@
 				        <label for="mobile number">
 					        <i class="fa fa-phone"></i>
 				        </label>
-				        <input class="form-control" name="mobile_number" id="number" value="Enter your mobile number(optional)" type="text">
+				        <input class="form-control" name="mobile_number" id="number" placeholder="Enter your mobile number(optional)" type="text">
                     </div>
                     <div class="help-block with-errors"></div>
                   </div>
