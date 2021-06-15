@@ -1,31 +1,32 @@
 import sqlite3
 import pandas as pd
 from io import StringIO
+from sklearn.model_selection import train_test_split
+import pickle
 
-#table creation
-def tablecreation(request):
+
+# table creation
+def table_creation(request):
     with sqlite3.connect("db.sqlite3") as c:
-        cur=c.cursor()
         name = request.FILES["file"]
-        file=name.read().decode('utf-8')
+        file = name.read().decode('utf-8')
         data = StringIO(file)
-        df = pd.read_csv(data)
-        df.to_sql('titanic', c,if_exists='replace')
+        df = pd.read_csv(data, index_col=0)
+        df.to_sql('boston', c, if_exists='replace')
+        df.style.set_table_styles([{'selector': '',
+                                    'props': [('border',
+                                               '2px solid green')]}])
         c.commit()
-        return {'data': df.to_html(max_cols=12)}
-def modeltraining(request):
+        return df.to_html(classes='mystyle')
+
+
+def model_training():
     with sqlite3.connect("db.sqlite3") as c:
-        cur=c.cursor()
-        table=pd.read_sql_query('SELECT * from titanic',c)
-        print(table.head(5))
-        print(type(table))
-        return {"result":"ok"}
-
-
-
-
-
-
-
-
-
+        table = pd.read_sql_query('SELECT * from boston', c)
+        x = table.drop(['medv', 'index'], axis=1)
+        print(x.head(2))
+        model = pickle.load(open('boston_data.pkl', 'rb'))
+        prediction = model.predict(x)
+        x['prediction'] = prediction
+        print(x.head())
+        return x.to_html()

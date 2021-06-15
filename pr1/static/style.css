@@ -1,3 +1,4 @@
+{% load static %}
 * {
   	box-sizing: border-box;
   	font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
@@ -6,8 +7,10 @@
   	-moz-osx-font-smoothing: grayscale;
 }
 body {
-  	background-color: #ed91db;
   	margin: 0;
+}
+.lr_body{
+background-color: 	#ed91db;
 }
 .login, .register {
   	width: 400px;
@@ -87,55 +90,31 @@ body {
   	background-color: #2868c7;
   	transition: background-color 0.2s;
 }
-.navtop {
-  	background-color: #2f3947;
-  	height: 60px;
-  	width: 100%;
-  	border: 0;
-	display: flex;
+
+.header{
+	padding: 15px;
+	height:50px ;
+
 }
-.navtop div {
-  	display: flex;
-  	margin: 0 auto;
-  	width: auto;
-  	height: 100%;
+.header1_1 > a,.header1_2 > a
+{
+	text-decoration:none;
+	color: #808080;
 }
-.navtop div h1, .navtop div a {
-  	display: inline-flex;
-  	align-items: center;
-}
+.header1_1{display:inline-block; width:30%; text-align: left }
+.header1_2{display:inline-block;width:69%; text-align: end}
 
 
-.navtop div h1 {
-  	flex: 1;
-  	font-size: 24px;
-  	padding: 0;
- 	margin: 0;
-  	color: #eaebed;
-  	font-weight: normal;
-}
-.navtop div a {
-  	padding: 0 20px;
-  	text-decoration: none;
-  	color: #c1c4c8;
-  	font-weight: bold;
-}
-.navtop div a i {
-  	padding: 2px 8px 0 0;
-}
-.navtop div a:hover {
-  	color: #eaebed;
-}
-body.loggedin {
-  	background-color: #f3f4f7;
-}
+
 .content {
   	width: 100%;
-  	margin: 0 auto;
+	background-image: url("background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+    height: 650px;
 }
 
 .content h2 {
-  	margin: 0;
   	padding: 25px 0;
   	font-size: 22px;
   	border-bottom: 1px solid #e0e0e3;
@@ -166,21 +145,77 @@ body.loggedin {
 
 .profile-form{
   	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-  	margin: 25px 0;
-  	padding: 25px;
-	border: 1px solid;
+   	padding: 25px;
 	max-width:50%;
-	background-color: #fff;
+
 }
 .table_data{
   	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-	background-color: #fff;
 	margin: 0 auto;
 	width:auto;
 	overflow:auto;
 }
 
 .profile-form > form{
-margin: 0 auto;
 width:250px;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+
+.mystyle {
+    font-size: 11pt;
+    font-family: Arial;
+    border-collapse: collapse;
+    border: 1px solid silver;
+}
+
+
+
+.mystyle td, th {
+    padding: 5px;
+	background-color;
+}
+
+
+
+.mystyle tr:hover {
+    background: silver;
+    cursor: pointer;
+}
+
+.file-field input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+nput[type="file" i] {
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    align-items: baseline;
+    color: inherit;
+    text-overflow: ellipsis;
+    white-space: pre;
+    text-align: start !important;
+    padding: initial;
+    border: initial;
+    overflow: hidden !important;
 }

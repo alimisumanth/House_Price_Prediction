@@ -1,6 +1,5 @@
 {% load static %}
-<!DOCTYPE html>
-<html>
+<html  lang="">
 	<head>
 		<meta charset="utf-8">
 		<title>{% block title %}{% endblock %}</title>
@@ -9,22 +8,23 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-<script type="text/javascript">$(document).ready(function(){$('table').DataTable({
+<script type="text/javascript">
+	$(document).ready(function(){$('table').DataTable({
     "pageLength": 10
 });});
-    $("table").width($(window).width());
+	$("table").width($(window).width());
 </script>
 	</head>
-	<body class="loggedin">
-		<nav class="navtop">
-			<div style="align-content: start">
-				<h1>Academic projects</h1>
-			</div>
-            <div>
-                <a href="{% url 'pr1:home' %}"><i class="fas fa-home"></i>Home</a>
-                 <a href="{% url 'pr1:model' %}"><i class="fas fa-folder"></i>Model</a>
+	<body >
+		<nav class="header">
+			<div class="header1_1" style="align-content: start">
+				<a>Demo project-1</a>&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'pr1:home' %}"><i class="fas fa-home"></i>Home</a>&nbsp;&nbsp;&nbsp;
+				<a href="{% url 'pr1:input' %}">Input</a>&nbsp;&nbsp;&nbsp;
+                 <a href="{% url 'pr1:model' %}">Model</a>
             </div>
-            <div style="align-content: end">
+            <div class="header1_2">
+				<a>Welcome {{user}}</a>&nbsp;&nbsp;&nbsp;
                  <a href="{% url 'pr1:logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a>
             </div>
 		</nav>

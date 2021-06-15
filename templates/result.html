@@ -2,5 +2,7 @@
 
 {% block title %}Model{% endblock %}
 {% block content %}
-{{result}}
+   <div class="table_data">
+{{ data|safe }}
+    </div>
 {% endblock %}
