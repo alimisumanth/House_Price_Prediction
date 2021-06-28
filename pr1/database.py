@@ -17,7 +17,7 @@ def table_creation(request):
                                     'props': [('border',
                                                '2px solid green')]}])
         c.commit()
-        return df.to_html()#class='mystyle'
+        return df.to_html()  # class='mystyle'
 
 
 def model_training():
@@ -29,6 +29,7 @@ def model_training():
         prediction = model.predict(x)
         x['prediction'] = prediction
         return x.to_html()
+
 
 def statisticalinfo():
     with sqlite3.connect("db.sqlite3") as c:
