@@ -10,7 +10,11 @@ body {
   	margin: 0;
 }
 .lr_body{
-background-color: 	#ed91db;
+  	width: 100%;
+	background-image: url("background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+    height: 650px;
 }
 .login, .register {
   	width: 400px;

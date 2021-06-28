@@ -36,7 +36,11 @@ def logoutpage(request):
 
 
 def home(request):
-    return render(request, 'home.html')
+    if request.user.is_authenticated:
+        return render(request, 'home.html')
+    else:
+        return redirect('pr1:login')
+
 
 
 # login method
@@ -97,8 +101,12 @@ def model(request):
               return redirect('pr1:login')
 
 def eda(request):
-    statisticalinfo()
-    return render(request, 'stats.html')
+    if request.user.is_authenticated:
+        statisticalinfo()
+        return render(request, 'stats.html')
+    else:
+        return redirect('pr1:login')
+
 
 
 
