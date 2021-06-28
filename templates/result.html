@@ -1,8 +1,19 @@
-{% extends 'layout.html' %}
-
-{% block title %}Model{% endblock %}
+{% load static %}
+<html>
+<head>
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){$('table').DataTable({
+    "pageLength": 10
+});});
+$("table").width($(window).width());
+  </script>
+</head>
+<body>
 {% block content %}
    <div class="table_data">
 {{ data|safe }}
     </div>
 {% endblock %}
+</body>
+</html>

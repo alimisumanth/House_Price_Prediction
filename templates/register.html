@@ -20,18 +20,17 @@
 		<div class="register">
 			<h1>Register</h1>
 			<div class="links">
-				<a href="{% url 'pr1:index' %}">Login</a>
+				<a href="{% url 'pr1:login' %}">Login</a>
 				<a href="{% url 'pr1:register' %}" class="active">Register</a>
 			</div>
-			<form action="{% url 'pr1:register' %}" role="form" data-toggle="validator" method="post" autocomplete="off">
+			<form  role="form" data-toggle="validator" method="post" autocomplete="off">
 				 {% csrf_token %}
                 <div class="form-group">
                     <div class="flex-container">
                         <label for="username">
 					<i class="fas fa-user"></i>
 				</label>
-				        <input type="text" class="form-control" name="username" maxlength="10" minlength="3"
-                            pattern="^[a-zA-Z0-9_.-]*$" placeholder="Username" id="username" required>
+				       {{ form.username }}
                     </div>
                     <!-- Error -->
                     <div class="help-block with-errors"></div>
@@ -41,32 +40,32 @@
 				        <label for="email">
 					        <i class="fas fa-envelope"></i>
 				        </label>
-				        <input type="email" name="email" class="form-control" id="email" placeholder="Email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" data-error="invalid email" required>
+				       {{ form.email }}
                     </div>
                      <div class="help-block with-errors"></div>
                 </div>
-                  <div class="form-group">
-                    <div class="flex-container">
-				        <label for="mobile number">
-					        <i class="fa fa-phone"></i>
-				        </label>
-				        <input class="form-control" name="mobile_number" id="number" placeholder="Enter your mobile number(optional)" type="text">
-                    </div>
-                    <div class="help-block with-errors"></div>
-                  </div>
                 <div class="form-group">
                     <div class="flex-container">
 				        <label for="password">
 					        <i class="fas fa-lock"></i>
 				        </label>
-				        <input input type="password" name="password" data-minlength="4" class="form-control" id="inputPassword"
-                                data-error="Have atleast 4 characters" placeholder="Password" required>
+				    {{ form.password1 }}
+                    </div>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                 <div class="form-group">
+                    <div class="flex-container">
+				        <label for="password">
+					        <i class="fas fa-lock"></i>
+				        </label>
+				    {{ form.password2 }}
                     </div>
                     <div class="help-block with-errors"></div>
                   </div>
 
 				<input type="submit" value="Register">
 			</form>
+            {{form.errors}}
 		</div>
 	</body>
 </html>

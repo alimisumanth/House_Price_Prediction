@@ -1,8 +1,8 @@
 import sqlite3
 import pandas as pd
 from io import StringIO
-from sklearn.model_selection import train_test_split
 import pickle
+from pandas_profiling import ProfileReport
 
 
 # table creation
@@ -17,7 +17,7 @@ def table_creation(request):
                                     'props': [('border',
                                                '2px solid green')]}])
         c.commit()
-        return df.to_html(classes='mystyle')
+        return df.to_html()#class='mystyle'
 
 
 def model_training():
@@ -29,3 +29,9 @@ def model_training():
         prediction = model.predict(x)
         x['prediction'] = prediction
         return x.to_html()
+
+def statisticalinfo():
+    with sqlite3.connect("db.sqlite3") as c:
+        table = pd.read_sql_query('SELECT * from boston', c)
+        prof = ProfileReport(table)
+        prof.to_file(output_file='templates/eda.html')

@@ -91,28 +91,30 @@ background-color: 	#ed91db;
   	transition: background-color 0.2s;
 }
 
-.header{
+.header1{
 	padding: 15px;
 	height:50px ;
+	background-color: cyan;
 
 }
 .header1_1 > a,.header1_2 > a
 {
 	text-decoration:none;
 	color: #808080;
+	text-decoration-color: darkslategrey;
 }
-.header1_1{display:inline-block; width:30%; text-align: left }
-.header1_2{display:inline-block;width:69%; text-align: end}
+.header1_1{display:inline-block; width:50%; text-align: left }
+.header1_2{display:inline-block;width:48%; text-align: end}
 
 
 
-.content {
+/*.content {
   	width: 100%;
 	background-image: url("background.png");
 	background-repeat: no-repeat;
 	background-size: cover;
     height: 650px;
-}
+}*/
 
 .content h2 {
   	padding: 25px 0;
@@ -146,7 +148,8 @@ background-color: 	#ed91db;
 .profile-form{
   	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
    	padding: 25px;
-	max-width:50%;
+	max-width:40%;
+	 margin:0 auto /* for center alignment*/
 
 }
 .table_data{
@@ -174,7 +177,7 @@ width:250px;
 
 .mystyle {
     font-size: 11pt;
-    font-family: Arial;
+
     border-collapse: collapse;
     border: 1px solid silver;
 }
@@ -183,7 +186,7 @@ width:250px;
 
 .mystyle td, th {
     padding: 5px;
-	background-color;
+	background-color:blue;
 }
 
 
@@ -206,7 +209,7 @@ width:250px;
     filter: alpha(opacity=0);
     opacity: 0;
 }
-nput[type="file" i] {
+input[type="file" i] {
     appearance: none;
     background-color: initial;
     cursor: default;

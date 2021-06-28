@@ -1,76 +1,106 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import User
+
+from .form import CreateUserForm
 from .database import *
-from .models import User
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+
+
 
 
 # user homepage
+
 def upload(request):
     if request.method == 'POST':
         return render(request, 'input.html', {'data': table_creation(request)})
     else:
-        if 'user' in request.session:
-            return render(request, 'input.html')  # redirects to homepage if user login successful
+        if request.user.is_authenticated:
+            return render(request, 'input.html')
         else:
-            return redirect('pr1:index')
+            return redirect('pr1:login')
+
+
+
 
 
 # logout method
-def logout(request):
+def logoutpage(request):
     try:
-        del request.session['user']  # deleting the session of user
-    except :
+        logout(request)
+        request.session.clear()  # deleting the session of user
+    except:
         return redirect('pr1:index')  # redirecting to login page
-    return redirect('pr1:index')  # redirecting to login page
+    return redirect('pr1:login')  # redirecting to login page
+
 
 def home(request):
     return render(request, 'home.html')
 
 
-
-
 # login method
-def login(request):
+def loginpage(request):
     """ if user submits the credentials  then it check if they are valid or not
                     if it is valid then it redirects to user home page """
+    if request.user.is_authenticated:
+        return redirect('pr1:home')
+    else:
 
-    if request.method == 'POST':
-        uname = request.POST.get('username')  # retrieving username from login form
-        pwd = request.POST.get('password')  # retrieving password from login form
-        check_user = User.objects.filter(username=uname, password=pwd)  # check user details in user db
-        if check_user:  # checks user is valid or not
-            request.session['user'] = uname
-            return render(request, 'home.html', {'user': uname})  # redirecting to homepage
-        else:
-            return HttpResponse('Please enter valid Username or Password.')  # if the user details doesn't match then  it will prompt invalid credentials
-    return render(request, 'login.html')
+        if request.method == 'POST':
+
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            print(username,password)
+
+
+            user = authenticate(request, username=username, password=password)
+            print(user)
+            # chek user exist
+            if user is not None:
+                login(request, user)
+                return redirect('pr1:home')
+            else:
+                messages.info(request, 'User Name or Password is incorrect')
+        context = {}
+        return render(request, 'login.html', context)
 
 
 # user registration method
 def register(request):
-    if request.method == 'POST':
-        uname = request.POST.get('username')  # Retrieving username from registration form
-        pwd = request.POST.get('password')  # Retrieving password from registration form
-        email = request.POST.get("email")  # Retrieving email_id from registration form
-        mobile = request.POST.get('mobile_number')  # Retrieving mobile number from registration form
-        if User.objects.filter(username=uname).count() > 0:  # checks if username already exits or not
-            return HttpResponse('Username already exists.')
-        else:
-            user = User(username=uname, password=pwd,
-                        email=email, mobile=mobile)  # if username does not exist then it will create a new user with provided details
-            user.save()  # saves user details in user db
-            return redirect('pr1:index')  # redirects to login page
+    if request.user.is_authenticated:
+        return redirect('pr1:home')
     else:
-        return render(request, 'register.html')  # redirecting to registration page
+        form = CreateUserForm()
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                user1 = form.save()
+
+                user = form.cleaned_data.get('username')
+                print(user1.password)
+                messages.success(request, 'Account was created for ' + user)
+                return redirect('pr1:login')
+        context = {'form': form}
+        return render(request, 'register.html', context) # redirecting to registration page
 
 
 # ml model
+
 def model(request):
     if request.method == 'POST':
         return render(request, 'result.html', {'data': model_training()})
     else:
-        if 'user' in request.session:
-            return render(request, 'model.html')  # redirects to homepage if user login successful
-        else:
-            return render(request, 'login.html')
+          if request.user.is_authenticated:
+              return render(request, 'model.html')
+          else :
+              return redirect('pr1:login')
+
+def eda(request):
+    statisticalinfo()
+    return render(request, 'stats.html')
+
+
+
+
+

@@ -11,10 +11,10 @@
 		<div class="login">
 			<h1>Login</h1>
 			<div class="links">
-				<a href="{% url 'pr1:index' %}" class="active">Login</a>
+				<a href="{% url 'pr1:login' %}" class="active">Login</a>
 				<a href="{% url 'pr1:register' %}">Register</a>
 			</div>
-			<form action="{% url 'pr1:index' %}" method="post">
+			<form action="" method="post">
                 {% csrf_token %}
 				<label for="username">
 					<i class="fas fa-user"></i>
@@ -28,6 +28,9 @@
 
 				<input type="submit" value="Login">
 			</form>
+            {% for message in messages %}
+				<p id="messages">{{message}}</p>
+			{% endfor %}
 		</div>
 	</body>
 </html>
