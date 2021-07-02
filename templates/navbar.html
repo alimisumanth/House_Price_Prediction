@@ -2,12 +2,18 @@
 <link href="{% static "style.css" %}" rel="stylesheet">
 <nav class="header">
     <div class="header1">
+        <div class="header1_0">
+          <!--   <img class="logo" src="{% static "logo.jpg" %}" alt="Digiotai" width="40" height="40"/>-->
+        </div>
 			<div class="header1_1" >
-				<a>Demo project-1</a>&nbsp;&nbsp;&nbsp;
                 <a href="{% url 'pr1:home' %}"><i class="fas fa-home"></i>Home</a>&nbsp;&nbsp;&nbsp;
 				<a href="{% url 'pr1:input' %}">Input</a>&nbsp;&nbsp;&nbsp;
                 <a href="{% url 'pr1:stats' %}">Stats</a>&nbsp;&nbsp;&nbsp;&nbsp;
                  <a href="{% url 'pr1:model' %}">Model</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'pr1:charts' %}">Charts</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="header1_11">
+                <a>Demo project-1</a>&nbsp;&nbsp;&nbsp;
             </div>
             <div class="header1_2" >
 				<a>Welcome {{request.user}}</a>&nbsp;&nbsp;&nbsp;

@@ -20,7 +20,7 @@ body {
   	width: 400px;
   	background-color: #ffffff;
   	box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
-  	margin: 100px auto;
+  	margin: 120px 40px;
 }
 .login h1, .register h1 {
   	text-align: center;
@@ -79,6 +79,7 @@ body {
  .flex-container {
   display: flex;
 }
+
 .login form input[type="submit"], .register form input[type="submit"] {
   	width: 100%;
   	padding: 15px;
@@ -97,18 +98,21 @@ body {
 
 .header1{
 	padding: 15px;
-	height:50px ;
-	background-color: cyan;
+	height:60px ;
+	background-color: blue;
 
 }
 .header1_1 > a,.header1_2 > a
 {
 	text-decoration:none;
-	color: #808080;
-	text-decoration-color: darkslategrey;
+	color:black;
+	text-decoration-color:black;
+
 }
-.header1_1{display:inline-block; width:50%; text-align: left }
-.header1_2{display:inline-block;width:48%; text-align: end}
+.header1_0{display:inline-block; width:6%; text-align: left }
+.header1_1{display:inline-block; width:44%; text-align: left }
+.header1_11{display:inline-block; width:10%; text-align: left }
+.header1_2{display:inline-block;width:38%; text-align: end}
 
 
 
@@ -144,6 +148,7 @@ body {
 	color: #4a536e;
 	padding-right: 15px;
 }
+
 .content > div p {
 	padding: 5px;
 	margin: 0 0 10px 0;
@@ -153,7 +158,7 @@ body {
   	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
    	padding: 25px;
 	max-width:40%;
-	 margin:0 auto /* for center alignment*/
+	/* margin:0 auto /* for center alignment*/
 
 }
 .table_data{
@@ -164,7 +169,7 @@ body {
 }
 
 .profile-form > form{
-width:250px;
+width:100%;
 }
 
 .button {

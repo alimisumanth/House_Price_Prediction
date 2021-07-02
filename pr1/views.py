@@ -20,6 +20,7 @@ def upload(request):
 # logout method
 def logoutpage(request):
     try:
+        tabledeletion()
         logout(request)
         request.session.clear()  # deleting the session of user
     except:
@@ -76,10 +77,9 @@ def register(request):
 
 
 # ml model
-
 def model(request):
     if request.method == 'POST':
-        return render(request, 'result.html', {'data': model_training()})
+        return render(request, 'model.html', model_training())
     else:
         if request.user.is_authenticated:
             return render(request, 'model.html')
@@ -89,7 +89,18 @@ def model(request):
 
 def eda(request):
     if request.user.is_authenticated:
-        statisticalinfo()
         return render(request, 'stats.html')
     else:
         return redirect('pr1:login')
+
+
+def charts(request):
+    if request.user.is_authenticated:
+        return render(request, 'charts.html')
+    else:
+        return redirect('pr1:login')
+
+
+def download(request):
+
+    return filedownload()
