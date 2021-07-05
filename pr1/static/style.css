@@ -96,6 +96,9 @@ body {
   	transition: background-color 0.2s;
 }
 
+
+
+
 .header1{
 	padding: 15px;
 	height:60px ;
@@ -157,8 +160,14 @@ body {
 .profile-form{
   	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
    	padding: 25px;
-	max-width:40%;
-	/* margin:0 auto /* for center alignment*/
+	max-width:50%;
+	margin:65px 0 /* for center alignment*/
+
+}
+.model_form{
+   	padding: 25px;
+	max-width:50%;
+	margin:65px 0 /* for center alignment*/
 
 }
 .table_data{

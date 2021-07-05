@@ -6,20 +6,45 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 <script type="text/javascript">$(document).ready(function(){$('table').DataTable({
     "pageLength": 50
-});});</script>
+});});
+
+</script>
+
 </head>
 <body>
 {% include "navbar.html" %}
 
-
+<div class="model_form">
 <form enctype="multipart/form-data" method="post">
                 {% csrf_token %}
+
+    <label>Auto</label><input type="radio" id="radioautomatic" name="group1" value="auto" required><br>
+    <label>manual</label><input type="radio" id="radiomanual" name="group1" value="manual" required><br>
+
+    <div id="manual">
+        <label>Crim</label> <input type="text" placeholder="" name="Crim" required>
+
+    </div>
     <button value="submit" class="button">Submit</button>
 
 </form>
+    <script type="text/javascript">
+    $(document).ready(function() {
+            $('#manual').hide();
+   $('input[type="radio"]').click(function() {
+       if($(this).attr('id') == 'radiomanual') {
+            $('#manual').show();
+       }
 
+       else {
+            $('#manual').hide();
+       }
+   });
+});
+</script>
+</div>
 {% block content %}
-<a href="{% url "pr1:download" %}">{{ download }}</a>
+<a href="{% url "pr1:download" %}">{{ download }}</a><br>
     {{ data|safe }}
 {% endblock %}
 </body>

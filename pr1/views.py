@@ -79,6 +79,9 @@ def register(request):
 # ml model
 def model(request):
     if request.method == 'POST':
+        if request.POST.get('group1')=='manual':
+            print(request.POST.get('Crim'))
+
         return render(request, 'model.html', model_training())
     else:
         if request.user.is_authenticated:
@@ -89,6 +92,8 @@ def model(request):
 
 def eda(request):
     if request.user.is_authenticated:
+        if not os.path.exists("templates/eda.html"):
+           statisticalinfo()
         return render(request, 'stats.html')
     else:
         return redirect('pr1:login')

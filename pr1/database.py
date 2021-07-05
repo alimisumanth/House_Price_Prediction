@@ -33,7 +33,7 @@ def model_training():
             x.to_sql('boston', c, if_exists='replace')
             return {'download': 'Download', 'data': x.to_html()}
         except Exception as e:
-            return {'data': 'Please upload the file'}
+            return {'data': e}
 
 
 

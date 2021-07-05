@@ -1,4 +1,13 @@
 {% load static %}
+<style type="text/css">
+    .header{
+	overflow: hidden;
+  background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+</style>
 <link href="{% static "style.css" %}" rel="stylesheet">
 <nav class="header">
     <div class="header1">
@@ -13,7 +22,7 @@
                 <a href="{% url 'pr1:charts' %}">Charts</a>&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="header1_11">
-                <a>Demo project-1</a>&nbsp;&nbsp;&nbsp;
+                <a>Demo project-1</a>
             </div>
             <div class="header1_2" >
 				<a>Welcome {{request.user}}</a>&nbsp;&nbsp;&nbsp;
