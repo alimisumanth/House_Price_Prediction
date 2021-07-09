@@ -18,12 +18,16 @@
 <form enctype="multipart/form-data" method="post">
                 {% csrf_token %}
 
-    <label>Auto</label><input type="radio" id="radioautomatic" name="group1" value="auto" required><br>
-    <label>manual</label><input type="radio" id="radiomanual" name="group1" value="manual" required><br>
+
+    <label for="radiomanual">manual
+        <input type="radio" value="manual" id="radiomanual" name="group1" >
+    </label><br>
+    <label for="radioautomatic">Auto
+        <input type="radio"  value="auto" id="radioautomatic" name="group1">
+    </label><br>
 
     <div id="manual">
         <label>Crim</label> <input type="text" placeholder="" name="Crim" required>
-
     </div>
     <button value="submit" class="button">Submit</button>
 

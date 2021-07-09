@@ -79,10 +79,12 @@ def register(request):
 # ml model
 def model(request):
     if request.method == 'POST':
-        if request.POST.get('group1')=='manual':
+        print(request.POST['group1'])
+        if request.POST.get('group1') == 'manual':
             print(request.POST.get('Crim'))
-
-        return render(request, 'model.html', model_training())
+            return render(request, 'model.html', model_training())
+        elif request.POST.get('group1') == 'auto':
+            return render(request, 'model.html', model_training())
     else:
         if request.user.is_authenticated:
             return render(request, 'model.html')

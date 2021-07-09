@@ -105,10 +105,10 @@ body {
 	background-color: blue;
 
 }
-.header1_1 > a,.header1_2 > a
+.header1_1 > a,.header1_2 > a, .header1_11 > a
 {
 	text-decoration:none;
-	color:black;
+	color:White;
 	text-decoration-color:black;
 
 }
