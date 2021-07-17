@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Login</title>
-		<link rel="stylesheet" href="{% static 'style.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
 	<body class="lr_body">
@@ -16,15 +16,19 @@
 			</div>
 			<form action="" method="post">
                 {% csrf_token %}
+                <div class="flex-container">
 				<label for="username">
 					<i class="fas fa-user"></i>
 				</label>
 				<input type="text" name="username" placeholder="Username" id="username" required>
-				<label for="password">
+                </div>
+                <div class="flex-container">
+                    <label for="password">
 					<i class="fas fa-lock"></i>
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required>
-				<div class="msg">{{ msg }}</div>
+				</div>
+                    <div class="msg">{{ msg }}</div>
 
 				<input type="submit" value="Login">
 			</form>

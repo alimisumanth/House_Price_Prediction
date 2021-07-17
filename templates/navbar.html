@@ -9,7 +9,7 @@
   width: 100%; /* Full width */
 }
 </style>
-<link href="{% static "style.css" %}" rel="stylesheet">
+<link href="{% static "css/style.css" %}" rel="stylesheet">
 <nav class="header">
     <div class="header1">
         <div class="header1_0">
@@ -18,7 +18,6 @@
 			<div class="header1_1" >
                 <a href="{% url 'pr1:home' %}"><i class="fas fa-home"></i>Home</a>&nbsp;&nbsp;&nbsp;
 				<a href="{% url 'pr1:input' %}">Input</a>&nbsp;&nbsp;&nbsp;
-                <a href="{% url 'pr1:stats' %}">Stats</a>&nbsp;&nbsp;&nbsp;&nbsp;
                  <a href="{% url 'pr1:model' %}">Model</a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="{% url 'pr1:charts' %}">Charts</a>&nbsp;&nbsp;&nbsp;&nbsp;
             </div>

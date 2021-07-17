@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .form import CreateUserForm
 from .database import *
 from django.contrib import messages
+import os
 from django.contrib.auth import authenticate, login, logout
 
 
@@ -66,10 +67,8 @@ def register(request):
         if request.method == 'POST':
             form = CreateUserForm(request.POST)
             if form.is_valid():
-                user1 = form.save()
-
+                form.save()
                 user = form.cleaned_data.get('username')
-                print(user1.password)
                 messages.success(request, 'Account was created for ' + user)
                 return redirect('pr1:login')
         context = {'form': form}
@@ -82,9 +81,8 @@ def model(request):
         print(request.POST['group1'])
         if request.POST.get('group1') == 'manual':
             print(request.POST.get('Crim'))
-            return render(request, 'model.html', model_training())
-        elif request.POST.get('group1') == 'auto':
-            return render(request, 'model.html', model_training())
+        return render(request, 'model.html', model_training())
+
     else:
         if request.user.is_authenticated:
             return render(request, 'model.html')
@@ -95,8 +93,8 @@ def model(request):
 def eda(request):
     if request.user.is_authenticated:
         if not os.path.exists("templates/eda.html"):
-           statisticalinfo()
-        return render(request, 'stats.html')
+            statisticalinfo()
+        return render(request, 'eda.html')
     else:
         return redirect('pr1:login')
 

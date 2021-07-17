@@ -2,14 +2,15 @@
 <html>
 <head>
    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 <script type="text/javascript">$(document).ready(function(){$('table').DataTable({
     "pageLength": 50
 });});</script>
 
 
-<link href="{% static "style.css" %}" rel="stylesheet">
+<link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "css/pagination.css" %}" rel="stylesheet">
 </head>
 <body>
 {% include "navbar.html" %}

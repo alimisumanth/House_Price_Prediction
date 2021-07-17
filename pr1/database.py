@@ -4,8 +4,7 @@ from io import StringIO, BytesIO
 import pickle
 from pandas_profiling import ProfileReport
 from django.http import HttpResponse
-from io import BytesIO
-import os
+
 
 # table creation
 def table_creation(request):
@@ -15,11 +14,9 @@ def table_creation(request):
         data = StringIO(file)
         df = pd.read_csv(data, index_col=0)
         df.to_sql('boston', c, if_exists='replace')
-        df.style.set_table_styles([{'selector': '',
-                                    'props': [('border',
-                                               '2px solid green')]}])
+        df.style.set_table_styles([{'selector': '','props': [('border','10px solid yellow')]}])
         c.commit()
-        return df.to_html()  # class='mystyle'
+        return df.to_html(classes='mystyle')  #
 
 
 def model_training():
@@ -41,14 +38,17 @@ def model_training():
 def statisticalinfo():
     with sqlite3.connect("db.sqlite3") as c:
         table = pd.read_sql_query('SELECT * from boston', c)
-        prof = ProfileReport(table)
+        prof = ProfileReport(table, title='Demo Project')
         prof.to_file(output_file='templates/eda.html')
 
 def tabledeletion():
     with sqlite3.connect("db.sqlite3") as c:
         cur = c.cursor()
-        cur.execute("DROP TABLE boston")
-        c.commit()
+        try:
+            cur.execute("DROP TABLE boston")
+            c.commit()
+        except:
+            pass
 
 
 
