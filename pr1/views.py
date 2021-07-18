@@ -10,7 +10,12 @@ from django.contrib.auth import authenticate, login, logout
 
 def upload(request):
     if request.method == 'POST':
-        return render(request, 'input.html', {'data': table_creation(request)})
+        file = request.FILES['file']
+        filename=file.name
+        if filename[filename.find('.'):] != '.csv':
+            return render(request, 'input.html', {'input_file': 'Please upload the file in csv format'})
+
+        return render(request, 'input.html', {'data': table_creation(request), 'stats': 'Click here to view statistical insights of historical data'})
     else:
         if request.user.is_authenticated:
             return render(request, 'input.html')
@@ -107,5 +112,4 @@ def charts(request):
 
 
 def download(request):
-
     return filedownload()

@@ -12,7 +12,7 @@ def table_creation(request):
         name = request.FILES["file"]
         file = name.read().decode('utf-8')
         data = StringIO(file)
-        df = pd.read_csv(data, index_col=0)
+        df = pd.read_csv(data)
         df.to_sql('boston', c, if_exists='replace')
         df.style.set_table_styles([{'selector': '','props': [('border','10px solid yellow')]}])
         c.commit()
