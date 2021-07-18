@@ -110,7 +110,7 @@ body {
 {
 	text-decoration:none;
 	color:white;
-	text-decoration-color:black;
+
 
 }
 .header1_0{display:inline-block; width:6%; text-align: left }
@@ -183,7 +183,7 @@ width:100%;
 }
 
 .button {
-  background-color: #4CAF50; /* Green */
+  background-color: #0d6efd; /* Green */
   border: none;
   color: white;
   padding: 8px 15px;
@@ -246,3 +246,4 @@ input[type="file" i] {
 .home_body{
 		margin:65px 0;
 }
+

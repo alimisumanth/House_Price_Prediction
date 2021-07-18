@@ -9,7 +9,7 @@ from django.http import HttpResponse
 # table creation
 def table_creation(request):
     with sqlite3.connect("db.sqlite3") as c:
-        name = request.FILES["file"]
+        name = request.FILES["input-b6b[]"]
         file = name.read().decode('utf-8')
         data = StringIO(file)
         df = pd.read_csv(data)

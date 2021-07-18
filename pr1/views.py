@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login, logout
 
 def upload(request):
     if request.method == 'POST':
-        file = request.FILES['file']
+        file = request.FILES['input-b6b[]']
         filename=file.name
         if filename[filename.find('.'):] != '.csv':
             return render(request, 'input.html', {'input_file': 'Please upload the file in csv format'})
