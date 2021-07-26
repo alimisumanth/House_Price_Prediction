@@ -19,32 +19,10 @@
                 {% csrf_token %}
 
 
-    <label for="radiomanual">manual
-        <input type="radio" value="manual" id="radiomanual" name="group1" >
-    </label><br>
-    <label for="radioautomatic">Auto
-        <input type="radio"  value="auto" id="radioautomatic" name="group1">
-    </label><br>
-    <div id="manual">
-        <label>Crim</label> <input type="text" placeholder="" name="Crim" required>
-    </div>
     <button value="submit" class="button">Submit</button>
 
 </form>
-    <script type="text/javascript">
-    $(document).ready(function() {
-            $('#manual').hide();
-   $('input[type="radio"]').click(function() {
-       if($(this).attr('id') == 'radiomanual') {
-            $('#manual').show();
-       }
 
-       else {
-            $('#manual').hide();
-       }
-   });
-});
-</script>
 </div>
 {% block content %}
 <a href="{% url "pr1:download" %}">{{ download }}</a><br>

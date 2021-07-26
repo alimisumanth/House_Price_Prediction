@@ -12,7 +12,7 @@ def table_creation(request):
         name = request.FILES["input-b6b[]"]
         file = name.read().decode('utf-8')
         data = StringIO(file)
-        df = pd.read_csv(data)
+        df = pd.read_csv(data,index_col=0)
         df.to_sql('boston', c, if_exists='replace')
         df.style.set_table_styles([{'selector': '','props': [('border','10px solid yellow')]}])
         c.commit()
@@ -28,10 +28,9 @@ def model_training():
             prediction = model.predict(x)
             x['prediction'] = prediction
             x.to_sql('boston', c, if_exists='replace')
-            return {'download': 'Download', 'data': x.to_html()}
+            return {'download': 'Download', 'data': x.to_html(classes='mystyle')}
         except Exception as e:
             return {'data': e}
-
 
 
 

@@ -83,10 +83,7 @@ def register(request):
 # ml model
 def model(request):
     if request.method == 'POST':
-        print(request.POST['group1'])
-        if request.POST.get('group1') == 'manual':
-            print(request.POST.get('Crim'))
-        return render(request, 'model.html', model_training())
+       return render(request, 'model.html', model_training())
 
     else:
         if request.user.is_authenticated:
