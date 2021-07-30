@@ -15,15 +15,8 @@
 <script src="https://code.highcharts.com/modules/heatmap.js"></script>
 
 
-<div class="charts" style="margin-right:auto;margin-left:auto;margin-top:65px;width:800px">
-<figure class="highcharts-figure">
-    <div id="container" ></div>
-    <p class="highcharts-description">
-        Heatmap showing employee data per weekday. Heatmaps are commonly used to
-        visualize hot spots within data sets, and to show patterns or correlations.
-        Due to their compact nature, they are often used with large sets of data.
-    </p>
-</figure>
+<div class="charts">
+    <div class="charts_div">
 <figure class="highcharts-figure">
   <div id="container1"></div>
   <p class="highcharts-description">
@@ -32,6 +25,8 @@
     vertically, and axis labels are easy to read.
   </p>
 </figure>
+    </div>
+    <div class="charts_div">
 <figure class="highcharts-figure">
   <div id="container2"></div>
   <p class="highcharts-description">
@@ -40,6 +35,17 @@
     column charts, they remain a popular choice for small datasets.
   </p>
 </figure>
+    </div>
+    <div class="charts_div">
+<figure class="highcharts-figure">
+    <div id="container" ></div>
+    <p class="highcharts-description">
+        Heatmap showing employee data per weekday. Heatmaps are commonly used to
+        visualize hot spots within data sets, and to show patterns or correlations.
+
+    </p>
+</figure>
+    </div>
 </div>
 <link rel="stylesheet" href="{% static "css/charts.css" %}">
 <script src="{% static 'js/charts.js' %}"></script>

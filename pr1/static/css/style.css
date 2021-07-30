@@ -97,26 +97,21 @@ body {
   	transition: background-color 0.2s;
 }
 
-
-
-
 .header1{
 	padding: 15px;
 	height:60px ;
 	background-color: #000080;
-
 }
 .header1_1 > a,.header1_2 > a, .header1_11 > a
 {
 	text-decoration:none;
 	color:white;
-
-
 }
+
 .header1_0{display:inline-block; width:6%; text-align: left }
 .header1_1{display:inline-block; width:44%; text-align: left }
-.header1_11{display:inline-block; width:10%; text-align: left }
-.header1_2{display:inline-block;width:38%; text-align: end}
+.header1_11{display:inline-block; width:18%; text-align: left }
+.header1_2{display:inline-block;width:30%; text-align: end}
 
 
 

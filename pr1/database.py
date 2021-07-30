@@ -20,7 +20,7 @@ def table_creation(request):
 
 def statisticalinfo():
     with sqlite3.connect("db.sqlite3") as c:
-        table = pd.read_sql_query('SELECT * from boston', c)
+        table = pd.read_sql_query('SELECT * from House_pricing', c)
         prof = ProfileReport(table, title='Demo Project')
         prof.to_file(output_file='templates/eda.html')
 
@@ -28,7 +28,8 @@ def tabledeletion():
     with sqlite3.connect("db.sqlite3") as c:
         cur = c.cursor()
         try:
-            cur.execute("DROP TABLE boston")
+            cur.execute("DROP TABLE House_pricing")
+            cur.execute("DROP TABLE predicted_House_pricing")
             c.commit()
         except:
             pass
@@ -38,13 +39,13 @@ def tabledeletion():
 def filedownload():
     try:
         with sqlite3.connect("db.sqlite3") as c, BytesIO() as b:
-            df = pd.read_sql_query('SELECT * from boston', c)
+            df = pd.read_sql_query('SELECT * from predicted_House_pricing', c)
             # Use the StringIO object as the filehandle.
             writer = pd.ExcelWriter(b, engine='xlsxwriter')
             df.to_excel(writer, sheet_name='Sheet1')
             writer.save()
             # Set up the Http response.
-            filename = 'boston.xlsx'
+            filename = 'House_pricing.xlsx'
             response = HttpResponse(
                    b.getvalue(),
                     content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
