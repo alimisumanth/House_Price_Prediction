@@ -1,7 +1,6 @@
 import sqlite3
 import pandas as pd
 from io import StringIO, BytesIO
-import pickle
 from pandas_profiling import ProfileReport
 from django.http import HttpResponse
 
@@ -12,26 +11,11 @@ def table_creation(request):
         name = request.FILES["input-b6b[]"]
         file = name.read().decode('utf-8')
         data = StringIO(file)
-        df = pd.read_csv(data,index_col=0)
-        df.to_sql('boston', c, if_exists='replace')
+        df = pd.read_csv(data)
+        df.to_sql('House_pricing', c, if_exists='replace')
         df.style.set_table_styles([{'selector': '','props': [('border','10px solid yellow')]}])
         c.commit()
         return df.to_html(classes='mystyle')  #
-
-
-def model_training():
-    with sqlite3.connect("db.sqlite3") as c:
-        try:
-            table = pd.read_sql_query('SELECT * from boston', c)
-            x = table.drop(['medv', 'index'], axis=1)
-            model = pickle.load(open('boston_data.pkl', 'rb'))
-            prediction = model.predict(x)
-            x['prediction'] = prediction
-            x.to_sql('boston', c, if_exists='replace')
-            return {'download': 'Download', 'data': x.to_html(classes='mystyle')}
-        except Exception as e:
-            return {'data': e}
-
 
 
 def statisticalinfo():

@@ -3,11 +3,11 @@ from .form import CreateUserForm
 from .database import *
 from django.contrib import messages
 import os
+from .mlmodel import *
 from django.contrib.auth import authenticate, login, logout
 
 
 # user homepage
-
 def upload(request):
     if request.method == 'POST':
         file = request.FILES['input-b6b[]']
