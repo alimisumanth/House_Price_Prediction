@@ -11,13 +11,13 @@ body {
 }
 .lr_body{
   	width: 100%;
-	background-image: url("../background.png");
+	background-image: url("../background1.jpeg");
 	background-repeat: no-repeat;
 	background-size: cover;
-    height: 650px;
+    height: 500px;
 }
 .login, .register {
-  	width: 500px;
+  	width: 400px;
   	background-color: #ffffff;
   	box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
   	margin: 120px 40px;
