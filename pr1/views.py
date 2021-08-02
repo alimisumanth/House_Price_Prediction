@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
 from .form import CreateUserForm
-from .database import *
+from .database import tabledeletion,table_creation
 from django.contrib import messages
 import os
-from .mlmodel import *
-from .utils import *
+from .mlmodel import model_training
+from .utils import filedownload,featuresinfo_download,statisticalinfo
 from django.contrib.auth import authenticate, login, logout
 import pandas as pd
-import numpy as np
+import sqlite3
+
 
 # user homepage
 def upload(request):
@@ -120,7 +121,7 @@ def charts(request):
                     pie_data=[{'name':names[i],'y': values[i]} for i in range(len(names))]
                     return render(request, 'charts.html',{'bar_data': bardata,'piedata':pie_data})
             except Exception as e :
-                return render(request, 'result.html', {'data':e})
+                return render(request, 'result.html', {'data':'Please predict the input data to get the prediction insights'})
     else:
         return redirect('pr1:login')
 

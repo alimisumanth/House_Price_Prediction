@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 from io import StringIO
-from pandas_profiling import ProfileReport
+
 
 
 
@@ -17,12 +17,6 @@ def table_creation(request):
         c.commit()
         return df.to_html(classes='input_table')  #
 
-
-def statisticalinfo():
-    with sqlite3.connect("db.sqlite3") as c:
-        table = pd.read_sql_query('SELECT * from House_pricing', c)
-        prof = ProfileReport(table, title='Demo Project')
-        prof.to_file(output_file='templates/eda.html')
 
 def tabledeletion():
     with sqlite3.connect("db.sqlite3") as c:

@@ -3,7 +3,7 @@ from docx import Document
 from django.http import HttpResponse
 import sqlite3
 import pandas as pd
-
+from pandas_profiling import ProfileReport
 
 
 def featuresinfo_download():
@@ -33,3 +33,10 @@ def filedownload():
             return response
     except Exception as e:
         return e
+
+
+def statisticalinfo():
+    with sqlite3.connect("db.sqlite3") as c:
+        table = pd.read_sql_query('SELECT * from House_pricing', c)
+        prof = ProfileReport(table, title='Demo Project')
+        prof.to_file(output_file='templates/eda.html')
