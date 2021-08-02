@@ -21,9 +21,9 @@ def model_training():
             feature_categorical_cols = [col_name for col_name in Y_test_original.columns if
                                         Y_test_original[col_name].nunique() < 50 and
                                         Y_test_original[col_name].dtype in ['object', 'bool']]
-            prediction=clf2.predict(Y_test_original)
+            prediction = clf2.predict(Y_test_original)
             Y_test_original['Predicted Sales Price'] = prediction
             Y_test_original.to_sql('predicted_House_pricing', c, if_exists='replace')
-            return {'download': 'Download', 'data': Y_test_original.to_html(classes='mystyle')}
+            return {'download': 'Click here to download the predicted results', 'data': Y_test_original.to_html(classes='output_table')}
         except Exception as e:
-            return {'data': e}
+            return {'data':e}

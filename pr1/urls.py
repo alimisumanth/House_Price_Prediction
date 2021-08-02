@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'model/$', views.model, name='model'),
     url(r'stats/$', views.eda, name='stats'),
     url(r'charts/$', views.charts, name='charts'),
-    url(r'download/$', views.download, name='download')
+    url(r'download/$', views.download, name='download'),
+    url(r'features/$',views.download_featureinfo,name='features')
 ]
 urlpatterns += staticfiles_urlpatterns()

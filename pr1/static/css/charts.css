@@ -49,3 +49,10 @@
 .highcharts-description{
     font-size: medium;
 }
+.business_cards{
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+    margin-left :10px;
+    margin-right:10px;
+    display: inline-block;
+    width: 23%;
+}

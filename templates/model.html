@@ -1,29 +1,22 @@
-
+{% load static %}
 <html>
 <head>
-     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-<script type="text/javascript">$(document).ready(function(){$('table').DataTable({
-    "pageLength": 50
-});});
-
-</script>
-
+    <link href="{% static "css/pagination_table.css" %}" rel="stylesheet">
 </head>
 <body>
 {% include "navbar.html" %}
-
-<div class="model_form">
-<form enctype="multipart/form-data" method="post">
-                {% csrf_token %}
-    <button value="submit" class="button">Submit</button>
-</form>
-
-</div>
+<div style="margin-top: 65px">
 {% block content %}
 <a href="{% url "pr1:download" %}">{{ download }}</a><br><br><br>
     {{ data|safe }}
 {% endblock %}
+</div>
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){$('table').DataTable({
+    "pageLength": 50 });});
+</script>
 </body>
 </html>

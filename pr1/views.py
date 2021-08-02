@@ -4,8 +4,10 @@ from .database import *
 from django.contrib import messages
 import os
 from .mlmodel import *
+from .utils import *
 from django.contrib.auth import authenticate, login, logout
-
+import pandas as pd
+import numpy as np
 
 # user homepage
 def upload(request):
@@ -48,9 +50,7 @@ def loginpage(request):
     if request.user.is_authenticated:
         return redirect('pr1:home')
     else:
-
         if request.method == 'POST':
-
             username = request.POST.get('username')
             password = request.POST.get('password')
             user = authenticate(request, username=username, password=password)
@@ -82,12 +82,14 @@ def register(request):
 
 # ml model
 def model(request):
-    if request.method == 'POST':
-       return render(request, 'model.html', model_training())
-
-    else:
         if request.user.is_authenticated:
-            return render(request, 'model.html')
+            with sqlite3.connect("db.sqlite3") as c:
+                try:
+                    data=pd.read_sql_query('SELECT * from House_pricing', c)
+                    if data.shape[0]>0:
+                        return render(request, 'model.html', model_training())
+                except Exception as e:
+                    return render(request, 'model.html', {'data':'Please Upload an input file to continue'})
         else:
             return redirect('pr1:login')
 
@@ -103,10 +105,26 @@ def eda(request):
 
 def charts(request):
     if request.user.is_authenticated:
-        return render(request, 'charts.html')
+        with sqlite3.connect("db.sqlite3") as c:
+            try:
+                data = pd.read_sql_query('SELECT * from predicted_House_pricing', c)
+                if data.shape[0] > 0:
+                    bar_col = data['YearBuilt'].value_counts()
+                    values=bar_col.tolist()
+                    names=list(map(str,bar_col.index.tolist()))
+                    bardata=[{names[i]:values[i]} for i in range(len(names))]
+
+                    pie_col=data['Neighborhood'].value_counts()
+                    values = pie_col.tolist()
+                    names = list(map(str, pie_col.index.tolist()))
+                    pie_data=[{'name':names[i],'y': values[i]} for i in range(len(names))]
+                    return render(request, 'charts.html',{'bar_data': bardata,'piedata':pie_data})
+            except Exception as e :
+                return render(request, 'result.html', {'data':e})
     else:
         return redirect('pr1:login')
 
-
 def download(request):
     return filedownload()
+def download_featureinfo(request):
+    return featuresinfo_download()
