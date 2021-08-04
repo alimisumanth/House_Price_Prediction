@@ -19,23 +19,22 @@
 {% include "navbar.html" %}
  <div class="profile-form" >
     <form enctype="multipart/form-data" method="POST">
-     {% csrf_token %}
+        {% csrf_token %}
         <h3>Upload a test file</h3><br>
         <div class="flex-container">
-
-     <label for="input-6b">Please Upload a file</label>&nbsp;&nbsp;
-<div class="file-loading">
-    <input id="input-b6b" name="input-b6b[]" type="file" accept=".csv">
-</div>
+            <label for="input-6b">Please Upload a file</label>&nbsp;&nbsp;
+            <div class="file-loading">
+                <input id="input-b6b" name="input-b6b[]" type="file" accept=".csv">
+            </div>
         </div><br>
-         <button type="submit" class="button" style="margin: 0 200px" >Submit</button>
+        <button type="submit" class="button" style="margin: 0 200px" >Submit</button>
     </form>
-<h3>{{ input_file }}</h3>
+    <h3>{{ input_file }}</h3>
  </div>
 <a href="{% url "pr1:stats" %}" target="_blank">{{ stats }}</a><br><br>
-    <div class="table_data">
-{{ data|safe }}
-    </div>
+<div class="table_data">
+        {{ data|safe }}
+</div>
 <link rel="stylesheet" href="{% static "css/inputfileupload.css" %}">
 <script>
  $("#input-b6b").fileinput({

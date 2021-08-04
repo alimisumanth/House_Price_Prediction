@@ -15,18 +15,18 @@
         <div class="header1_0">
           <!--   <img class="logo" src="{% static "logo.jpg" %}" alt="Digiotai" width="40" height="40"/>-->
         </div>
-			<div class="header1_1" >
+		<div class="header1_1" >
                 <a href="{% url 'pr1:home' %}"><i class="fas fa-home"></i>Home</a>&nbsp;&nbsp;&nbsp;
 				<a href="{% url 'pr1:input' %}">Input</a>&nbsp;&nbsp;&nbsp;
-                 <a href="{% url 'pr1:model' %}">Prediction</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'pr1:model' %}">Prediction</a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="{% url 'pr1:charts' %}">Insights</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-            <div class="header1_11">
+        </div>
+        <div class="header1_11">
                 <a style="color:white;">House Pricing Prediction</a>
-            </div>
-            <div class="header1_2" >
+        </div>
+        <div class="header1_2" >
 				<a style="color:white;">Welcome {{request.user}}</a>&nbsp;&nbsp;&nbsp;
-                 <a href="{% url 'pr1:logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a>
-            </div>
+                <a href="{% url 'pr1:logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div>
     </div>
 </nav>

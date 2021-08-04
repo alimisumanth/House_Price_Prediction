@@ -9,33 +9,32 @@
 	</head>
 	<body class="lr_body">
     <h1 style="text-align: center;font-size: 35px;color: white ">House Price Prediction</h1>
-		<div class="login">
-			<h1>Login</h1>
-			<div class="links">
-				<a href="{% url 'pr1:login' %}" class="active">Login</a>
-				<a href="{% url 'pr1:register' %}">Register</a>
-			</div>
-			<form action="" method="post">
-                {% csrf_token %}
-                <div class="flex-container">
-				<label for="username">
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
-                </div>
-                <div class="flex-container">
+    <div class="login">
+        <h1>Login</h1>
+		<div class="links">
+			<a href="{% url 'pr1:login' %}" class="active">Login</a>
+			<a href="{% url 'pr1:register' %}">Register</a>
+        </div>
+		<form action="" method="post">
+            {% csrf_token %}
+            <div class="flex-container">
+			        <label for="username">
+				        <i class="fas fa-user"></i>
+			        </label>
+			        <input type="text" name="username" placeholder="Username" id="username" required>
+            </div>
+            <div class="flex-container">
                     <label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
-				</div>
-                    <div class="msg">{{ msg }}</div>
-
-				<input type="submit" value="Login">
-			</form>
-            {% for message in messages %}
+					    <i class="fas fa-lock"></i>
+				    </label>
+				    <input type="password" name="password" placeholder="Password" id="password" required>
+            </div>
+            <div class="msg">{{ msg }}</div>
+			<input type="submit" value="Login">
+		</form>
+        {% for message in messages %}
 				<p id="messages">{{message}}</p>
-			{% endfor %}
-		</div>
+		{% endfor %}
+	</div>
 	</body>
 </html>

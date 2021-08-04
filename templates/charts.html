@@ -95,7 +95,7 @@
 <script src="{% static 'js/charts.js' %}"></script>
 <script>
 pie_data={{piedata|safe}}
-    Highcharts.chart('container2', {
+Highcharts.chart('container2', {
   chart: {
     plotBackgroundColor: null,
     plotBorderWidth: null,
@@ -129,6 +129,6 @@ pie_data={{piedata|safe}}
     data: pie_data
   }]
 });
-   </script>
+</script>
 </body>
 </html>
