@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from .form import CreateUserForm
-from .database import tabledeletion,table_creation
+from .database import SQLiteDB
 from django.contrib import messages
 import os
-from .mlmodel import model_training
+from .mlmodel import model_prediction
 from .utils import filedownload,featuresinfo_download,statisticalinfo
 from django.contrib.auth import authenticate, login, logout
 import pandas as pd
@@ -18,7 +18,7 @@ def upload(request):
         if filename[filename.find('.'):] != '.csv':
             return render(request, 'input.html', {'input_file': 'Please upload the file in csv format'})
 
-        return render(request, 'input.html', {'data': table_creation(request), 'stats': 'Click here to view statistical insights of historical data'})
+        return render(request, 'input.html', {'data': SQLiteDB.table_creation(SQLiteDB(),request), 'stats': 'Click here to view statistical insights of historical data'})
     else:
         if request.user.is_authenticated:
             return render(request, 'input.html')
@@ -29,7 +29,7 @@ def upload(request):
 # logout method
 def logoutpage(request):
     try:
-        tabledeletion()
+        SQLiteDB.tabledeletion(SQLiteDB())
         logout(request)
         request.session.clear()  # deleting the session of user
     except:
@@ -88,7 +88,7 @@ def model(request):
                 try:
                     data=pd.read_sql_query('SELECT * from House_pricing', c)
                     if data.shape[0]>0:
-                        return render(request, 'model.html', model_training())
+                        return render(request, 'model.html', model_prediction())
                 except Exception as e:
                     return render(request, 'model.html', {'data':'Please Upload an input file to continue'})
         else:

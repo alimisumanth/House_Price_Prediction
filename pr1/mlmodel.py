@@ -1,19 +1,49 @@
+# -*- coding: utf-8 -*-
+"""
+=============================================================================
+Created on: 04-08-2021 08:02 PM
+Created by: Digiotai
+=============================================================================
+Project Name: HousePricePrediction
+File Name: mlmodel.py
+Description:  This file consists of methods used for predicting the input data
+Version:
+Revision:
+=============================================================================
+"""
+
+# importing libraries
 import pandas as pd
 import sqlite3
 import joblib
 
 
-def model_training():
+def model_prediction():
+    """
+            Method Name: model_prediction
+            Description: This method is used to predict the input data.
+            Input: Data from House_pricing table in database
+            Output:  Returns html table created from predicted data.
+            On Failure: None
+
+            Written By: Digiotai
+            Version: 1.0
+            Revisions: None
+    """
     with sqlite3.connect("db.sqlite3") as c:
         try:
             Y_test_original = pd.read_sql_query('SELECT * from House_pricing', c)
-            print(Y_test_original.head(2))
+            # load
             clf2 = joblib.load("housepredction.pkl")
+
+            # To measure how recently the House was re-modified - calculate a column by subtracting YearBuilt from YearRemodAdd.
+            # The notes on the data says - YearRemodAdd: Remodel date (same as construction date if no remodeling or additions)
+
             Y_test_original['years_since_update'] = Y_test_original['YearRemodAdd'] - Y_test_original['YearBuilt']
             Y_test_original['garage_value'] = Y_test_original['YearBuilt'] * Y_test_original['GarageCars']
 
-            Y_test_original = Y_test_original.drop(columns=['GarageCars','index'])
-            print(Y_test_original.head(2))
+            Y_test_original = Y_test_original.drop(columns=['GarageCars', 'index'])
+
 
             feature_numerical_columns = [col_name for col_name in Y_test_original.columns if
                                          Y_test_original[col_name].dtype in ['int64', 'float64']]
@@ -24,6 +54,7 @@ def model_training():
             prediction = clf2.predict(Y_test_original)
             Y_test_original['Predicted Sales Price'] = prediction
             Y_test_original.to_sql('predicted_House_pricing', c, if_exists='replace')
-            return {'download': 'Click here to download the predicted results', 'data': Y_test_original.to_html(classes='output_table')}
+            return {'download': 'Click here to download the predicted results',
+                    'data': Y_test_original.to_html(classes='output_table')}
         except Exception as e:
-            return {'data':e}
+            return {'data': e}
