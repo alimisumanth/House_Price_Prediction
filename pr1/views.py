@@ -8,6 +8,10 @@ from .utils import filedownload,featuresinfo_download,statisticalinfo
 from django.contrib.auth import authenticate, login, logout
 import pandas as pd
 import sqlite3
+from .logger import Logger
+
+fileobject = open("Logs.txt", 'a+')
+logger = Logger()
 
 
 # user homepage
@@ -30,10 +34,14 @@ def upload(request):
 def logoutpage(request):
     try:
         SQLiteDB.tabledeletion(SQLiteDB())
+        logger.log(file_object=fileobject, log_message="Logout successfull")
+        fileobject.close()
         logout(request)
         request.session.clear()  # deleting the session of user
-    except:
-        return redirect('pr1:index')  # redirecting to login page
+    except Exception as e:
+        logger.log(file_object=fileobject, log_message=e)
+        fileobject.close()
+        return redirect('pr1:login')  # redirecting to login page
     return redirect('pr1:login')  # redirecting to login page
 
 
@@ -86,8 +94,8 @@ def model(request):
         if request.user.is_authenticated:
             with sqlite3.connect("db.sqlite3") as c:
                 try:
-                    data=pd.read_sql_query('SELECT * from House_pricing', c)
-                    if data.shape[0]>0:
+                    data = pd.read_sql_query('SELECT * from House_pricing', c)
+                    if data is not None:
                         return render(request, 'model.html', model_prediction())
                 except Exception as e:
                     return render(request, 'model.html', {'data':'Please Upload an input file to continue'})

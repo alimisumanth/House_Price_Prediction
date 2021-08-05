@@ -7,8 +7,8 @@ Created by: Digiotai
 Project Name: HousePricePrediction
 File Name: mlmodel.py
 Description:  This file consists of methods used for predicting the input data
-Version:
-Revision:
+Version: 1.0
+Revision: None
 =============================================================================
 """
 

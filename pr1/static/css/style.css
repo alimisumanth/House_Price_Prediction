@@ -116,14 +116,6 @@ body {
 
 
 
-/*.content {
-  	width: 100%;
-	background-image: url("background.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-    height: 650px;
-}*/
-
 .content h2 {
   	padding: 25px 0;
   	font-size: 22px;
@@ -157,9 +149,7 @@ body {
 .profile-form{
   	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
    	padding: 25px;
-	max-width:50%;
-	margin:65px 0 /* for center alignment*/
-
+	max-width:50%
 }
 .model_form{
    	padding: 25px;
@@ -218,7 +208,4 @@ input[type="file" i] {
     overflow: hidden !important;
 }
 
-.home_body{
-		margin:65px 0;
-}
 

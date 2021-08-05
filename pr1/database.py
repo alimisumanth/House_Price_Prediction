@@ -68,9 +68,26 @@ class SQLiteDB:
             #  connecting to SQlite database
             with sqlite3.connect("db.sqlite3") as c:
                 cur = c.cursor()
-                cur.execute('DROP TABLE House_pricing')
-                cur.execute('DROP TABLE predicted_House_pricing')
-                self.logger.log(file_object=self.fileobject, log_message="Table has been deleted successfully")
+                try:
+                    data = pd.read_sql_query('SELECT * from House_pricing', c)
+                    if data is not None:
+                        cur.execute('DROP TABLE House_pricing')
+                        self.logger.log(file_object=self.fileobject,
+                                        log_message=" House_pricing Table has been deleted successfully")
+                except pd.io.sql.DatabaseError as e:
+                    self.logger.log(file_object=self.fileobject,
+                                    log_message=" e")
+                try:
+                    data2 = pd.read_sql_query('SELECT * from predicted_House_pricing', c)
+                    if data2 is not None:
+                        cur.execute('DROP TABLE predicted_House_pricing')
+                        self.logger.log(file_object=self.fileobject,
+                                        log_message="predicted_House_pricing Table has been deleted successfully")
+                except pd.io.sql.DatabaseError as e:
+                    self.logger.log(file_object=self.fileobject,
+                                    log_message=" e")
                 c.commit()
+
         except Exception as e:
             self.logger.log(file_object=self.fileobject, log_message=e)
+
