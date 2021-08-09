@@ -118,16 +118,18 @@ def charts(request):
             try:
                 data = pd.read_sql_query('SELECT * from predicted_House_pricing', c)
                 if data.shape[0] > 0:
-                    bar_col = data['YearBuilt'].value_counts()
-                    values=bar_col.tolist()
-                    names=list(map(str,bar_col.index.tolist()))
-                    bardata=[{names[i]:values[i]} for i in range(len(names))]
+                    bar_col = data['YrSold'].value_counts()
+                    values_b=bar_col.tolist()
+                    names_b=list(map(str,bar_col.index.tolist()))
+                    bardata=[{names_b[i]:values_b[i]} for i in range(len(names_b))]
+                    print(names_b)
+                    print(bardata)
 
-                    pie_col=data['Neighborhood'].value_counts()
+                    pie_col=data['MSZoning'].value_counts()
                     values = pie_col.tolist()
                     names = list(map(str, pie_col.index.tolist()))
                     pie_data=[{'name':names[i],'y': values[i]} for i in range(len(names))]
-                    return render(request, 'charts.html',{'bar_data': bardata,'piedata':pie_data})
+                    return render(request, 'charts.html',{'bar_data': values_b,'names':names_b,'piedata':pie_data})
             except Exception as e :
                 return render(request, 'result.html', {'data':'Please predict the input data to get the prediction insights'})
     else:

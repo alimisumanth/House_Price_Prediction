@@ -85,6 +85,7 @@
     <p class="highcharts-description">
         Heatmap showing employee data per weekday. Heatmaps are commonly used to
         visualize hot spots within data sets, and to show patterns or correlations.
+            {{bardata|safe}}
 
     </p>
 </figure>
@@ -128,6 +129,53 @@ Highcharts.chart('container2', {
     colorByPoint: true,
     data: pie_data
   }]
+});
+</script>
+<script>
+bardata={{bar_data|safe}}
+names={{names|safe}}
+Highcharts.chart('container1', {
+  chart: {
+    type: 'bar'
+  },
+  title: {
+    text: 'Historic World Population by Region'
+  },
+  subtitle: {
+    text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+  },
+  xAxis: {
+    categories:  names,
+    title: {
+      text: null
+    }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Population (millions)',
+      align: 'high'
+    },
+    labels: {
+      overflow: 'justify'
+    }
+  },
+  tooltip: {
+    valueSuffix: ' millions'
+  },
+  plotOptions: {
+    bar: {
+      dataLabels: {
+        enabled: true
+      }
+    }
+  },
+  credits: {
+    enabled: false
+  },
+  series:  [{
+        data: bardata
+    }]
 });
 </script>
 
