@@ -10,31 +10,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 <link href="{% static "css/style.css" %}" rel="stylesheet">
-<!--
-<nav class="header">
-    <div class="header1">
-          <img class="logo" src="{% static "logo.jpg" %}" alt="Digiotai" width="40" height="40"/>
-        </div>
-		<div class="header1_1" >
-            <ul>
-                <li><a href="{% url 'pr1:home' %}" id="item1"><i class="fas fa-home"></i>Home</a></li>
-                <li><a href="{% url 'pr1:input' %}" id="item2">Input</a></li>
-                <li><a href="{% url 'pr1:model' %}" id="item3">Prediction</a></li>
-                <li><a href="{% url 'pr1:charts' %}" id="item4">Insights</a></li>
-            </ul>
-        </div>
-        <div class="header1_11">
-                <a style="color:white;">House Pricing Prediction</a>
-        </div>
-        <div class="header1_2" >
-				<a style="color:white;">Welcome {{request.user}}</a>&nbsp;&nbsp;&nbsp;
-                <a href="{% url 'pr1:logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a>
-        </div>
-    </div>
-</nav>-->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img class="logo" src="{% static "logo.jpg" %}" alt="Digiotai" width="40" height="40"/></a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

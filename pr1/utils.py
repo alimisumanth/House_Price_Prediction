@@ -4,6 +4,7 @@ from django.http import HttpResponse
 import sqlite3
 import pandas as pd
 from pandas_profiling import ProfileReport
+from django.http import HttpResponseRedirect, Http404, FileResponse
 
 
 def featuresinfo_download():
@@ -13,7 +14,7 @@ def featuresinfo_download():
     response['Content-Disposition'] = 'attachment; filename=data_description.docx'
     document.save(response)
 
-    return response
+    return FileResponse(open('description.pdf', 'rb'), content_type='application/pdf')
 
 def filedownload():
     try:
