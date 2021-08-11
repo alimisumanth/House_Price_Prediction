@@ -5,6 +5,10 @@
 </head>
 <body>
 {% include "navbar.html" %}
+<div id="loading">
+  <img id="loading-image" src="{% static 'loader.gif' %}" alt="Loading..." />
+</div>
+
 <div >
 {% block content %}
     <a href="{% url "pr1:download" %}">{{ download }}</a><br><br><br>
@@ -17,6 +21,27 @@
 <script type="text/javascript">
     $(document).ready(function(){$('table').DataTable({
     "pageLength": 50 });});
+</script>
+
+<style>
+#loading {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+
+  opacity: 0.7;
+  background-color: #fff;
+    margin-left: 100px;
+}
+
+
+</style>
+<script>
+  $(window).on('load', function () {
+    $('#loading').hide();
+  })
 </script>
 </body>
 </html>

@@ -5,3 +5,7 @@
 2021-08-08/21:47:09		Table Created successfully
 2021-08-08/21:49:43		Table Created successfully
 2021-08-08/21:51:17		Table Created successfully
+2021-08-11/12:30:16		 House_pricing Table has been deleted successfully
+2021-08-11/12:30:16		predicted_House_pricing Table has been deleted successfully
+2021-08-11/12:30:16		Logout successfull
+2021-08-11/12:48:39		Table Created successfully

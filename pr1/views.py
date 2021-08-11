@@ -122,8 +122,6 @@ def charts(request):
                     values_b=bar_col.tolist()
                     names_b=list(map(str,bar_col.index.tolist()))
                     bardata=[{names_b[i]:values_b[i]} for i in range(len(names_b))]
-                    print(names_b)
-                    print(bardata)
 
                     pie_col=data['MSZoning'].value_counts()
                     values = pie_col.tolist()
