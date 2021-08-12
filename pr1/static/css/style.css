@@ -149,7 +149,9 @@ body {
 .profile-form{
   	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
    	padding: 25px;
-	max-width:50%
+	max-width:30%;
+	margin-left: 10px;
+
 }
 .model_form{
    	padding: 25px;
@@ -208,4 +210,11 @@ input[type="file" i] {
     overflow: hidden !important;
 }
 
+#loading {
+  position: absolute;
+  align-items: center;
+  opacity: 0.8;
+  background-color: #fff;
+
+}
 

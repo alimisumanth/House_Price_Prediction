@@ -8,12 +8,6 @@ from django.http import HttpResponseRedirect, Http404, FileResponse
 
 
 def featuresinfo_download():
-    document = Document()
-    document.add_heading('Document Title', 0)
-    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
-    response['Content-Disposition'] = 'attachment; filename=data_description.docx'
-    document.save(response)
-
     return FileResponse(open('description.pdf', 'rb'), content_type='application/pdf')
 
 def filedownload():

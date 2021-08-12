@@ -13,3 +13,33 @@
 2021-08-11/17:52:27		predicted_House_pricing Table has been deleted successfully
 2021-08-11/17:52:27		Logout successfull
 2021-08-11/21:49:34		Logout successfull
+2021-08-12/23:14:34		Table Created successfully
+2021-08-12/23:17:18		Logout successfull
+2021-08-12/23:17:18		 House_pricing Table has been deleted successfully
+2021-08-12/23:17:18		 e
+2021-08-12/23:17:46		 e
+2021-08-12/23:17:46		predicted_House_pricing Table has been deleted successfully
+2021-08-12/23:18:35		Table Created successfully
+2021-08-12/23:24:22		Table Created successfully
+2021-08-12/23:26:26		Table Created successfully
+2021-08-12/23:27:09		Table Created successfully
+2021-08-12/23:27:39		Table Created successfully
+2021-08-12/23:28:08		Table Created successfully
+2021-08-12/23:30:35		Table Created successfully
+2021-08-12/23:33:01		Table Created successfully
+2021-08-12/23:34:45		Table Created successfully
+2021-08-12/23:37:53		Table Created successfully
+2021-08-12/23:38:40		Table Created successfully
+2021-08-12/23:39:26		Table Created successfully
+2021-08-12/23:40:59		Table Created successfully
+2021-08-12/23:41:36		Table Created successfully
+2021-08-12/23:42:55		Table Created successfully
+2021-08-12/23:43:00		Logout successfull
+2021-08-12/23:43:00		 House_pricing Table has been deleted successfully
+2021-08-12/23:43:00		 e
+2021-08-12/23:44:07		Table Created successfully
+2021-08-12/23:44:35		Table Created successfully
+2021-08-12/23:51:03		Table Created successfully
+2021-08-12/23:51:59		 House_pricing Table has been deleted successfully
+2021-08-12/23:51:59		predicted_House_pricing Table has been deleted successfully
+2021-08-12/23:51:59		Logout successfull

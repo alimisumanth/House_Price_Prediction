@@ -98,7 +98,7 @@ def model(request):
                     if data is not None:
                         return render(request, 'model.html', model_prediction())
                 except Exception as e:
-                    return render(request, 'model.html', {'data':'Please Upload an input file to continue'})
+                    return render(request, 'result.html', {'data':'Please Upload an input file to continue'})
         else:
             return redirect('pr1:login')
 

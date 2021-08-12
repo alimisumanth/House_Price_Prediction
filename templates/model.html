@@ -2,6 +2,7 @@
 <html>
 <head>
     <link href="{% static "css/pagination_table.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
 </head>
 <body>
 {% include "navbar.html" %}
@@ -23,21 +24,6 @@
     "pageLength": 50 });});
 </script>
 
-<style>
-#loading {
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 100px;
-
-  opacity: 0.7;
-  background-color: #fff;
-    margin-left: 100px;
-}
-
-
-</style>
 <script>
   $(window).on('load', function () {
     $('#loading').hide();
