@@ -54,6 +54,7 @@ class utils:
         """
         try:
             with sqlite3.connect("db.sqlite3") as c, BytesIO() as b:
+                self.fileobject = open("Logs.txt", 'a+')
                 self.logger.log(file_object=self.fileobject, log_message='fetching predicted data fromdatabase')
                 df = pd.read_sql_query('SELECT * from predicted_House_pricing', c)
                 # Use the StringIO object as the filehandle.
