@@ -19,6 +19,19 @@ class Logger:
         pass
 
     def log(self, file_object, log_message):
+        """
+                Method Name: log
+                Description: This method is used to write message into log.
+                params:{ file_object:file handle of the file,
+                        log_message: message to be written in file.
+                }
+                Output:  None
+                On Failure: None
+
+                Written By: Digiotai
+                Version: 1.0
+                Revisions: None
+        """
         self.now = datetime.now()
         self.date = self.now.date()
         self.current_time = self.now.strftime("%H:%M:%S")

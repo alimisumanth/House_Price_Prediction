@@ -46,11 +46,13 @@ class SQLiteDB:
                 # Storing the input data in database
                 df.to_sql('House_pricing', c, if_exists='replace')
                 # Logging success message
-                self.logger.log(file_object=self.fileobject, log_message="Table Created successfully")
+                self.logger.log(file_object=self.fileobject, log_message="Input data pushed to database")
                 c.commit()
+                self.fileobject.close()
             return df.to_html(classes='input_table')
         except Exception as e:
             self.logger.log(file_object=self.fileobject, log_message=e)
+            self.fileobject.close()
 
     def tabledeletion(self):
         """
@@ -73,7 +75,7 @@ class SQLiteDB:
                     if data is not None:
                         cur.execute('DROP TABLE House_pricing')
                         self.logger.log(file_object=self.fileobject,
-                                        log_message=" House_pricing Table has been deleted successfully")
+                                        log_message="House_pricing Table has been deleted successfully")
                 except pd.io.sql.DatabaseError as e:
                     self.logger.log(file_object=self.fileobject,
                                     log_message=" e")
@@ -87,7 +89,9 @@ class SQLiteDB:
                     self.logger.log(file_object=self.fileobject,
                                     log_message=" e")
                 c.commit()
+                self.fileobject.close()
 
         except Exception as e:
             self.logger.log(file_object=self.fileobject, log_message=e)
+            self.fileobject.close()
 
