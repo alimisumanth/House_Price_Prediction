@@ -115,37 +115,6 @@ body {
 .header1_2{display:inline-block;width:30%; text-align: end}
 
 
-
-.content h2 {
-  	padding: 25px 0;
-  	font-size: 22px;
-  	border-bottom: 1px solid #e0e0e3;
-  	color: #4a536e;
-}
-.content > p{
-  	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-  	margin: 25px 0;
-  	padding: 25px;
-	border: 1px solid;
-	max-width:100%;
-	background-color: #fff;
-}
-
-.content > p table td, .content > div table td {
-	padding: 5px;
-}
-
-.content > p table td:first-child, .content > div table td:first-child {
-	font-weight: bold;
-	color: #4a536e;
-	padding-right: 15px;
-}
-
-.content > div p {
-	padding: 5px;
-	margin: 0 0 10px 0;
-}
-
 .profile-form{
   	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
    	padding: 25px;
@@ -169,7 +138,6 @@ body {
 .profile-form > form{
 width:100%;
 }
-
 .button {
   background-color: #0d6efd; /* Green */
   border: none;
@@ -180,9 +148,6 @@ width:100%;
   display: inline-block;
   font-size: 12px;
 }
-
-
-
 .file-field input[type="file"] {
     position: absolute;
     top: 0;
@@ -209,7 +174,6 @@ input[type="file" i] {
     border: initial;
     overflow: hidden !important;
 }
-
 #loading {
   position: absolute;
   align-items: center;
