@@ -32,7 +32,7 @@ def upload(request):
         if request.user.is_authenticated:
             return render(request, 'input.html')
         else:
-            return redirect('pr1:login')
+            return redirect('HousePricing:login')
 
 
 # logout method
@@ -47,15 +47,15 @@ def logoutpage(request):
     except Exception as e:
         logger.log(file_object=fileobject, log_message=e)
         fileobject.close()
-        return redirect('pr1:login')  # redirecting to login page
-    return redirect('pr1:login')  # redirecting to login page
+        return redirect('HousePricing:login')  # redirecting to login page
+    return redirect('HousePricing:login')  # redirecting to login page
 
 
 def home(request):
     if request.user.is_authenticated:
         return render(request, 'home.html')
     else:
-        return redirect('pr1:login')
+        return redirect('HousePricing:login')
 
 
 # login method
@@ -66,7 +66,7 @@ def loginpage(request):
     if request.user.is_authenticated:
         logger.log(file_object=fileobject, log_message='User already logged in redirecting to homepage')
         fileobject.close()
-        return redirect('pr1:home')
+        return redirect('HousePricing:home')
     else:
 
         if request.method == 'POST':
@@ -76,7 +76,7 @@ def loginpage(request):
             if user is not None:
                 login(request, user)
                 logger.log(file_object=fileobject, log_message='User authentication success, redirecting to homepage')
-                return redirect('pr1:home')
+                return redirect('HousePricing:home')
             else:
                 logger.log(file_object=fileobject, log_message='User authentication failed')
                 messages.info(request, 'User Name or Password is incorrect')
@@ -91,7 +91,7 @@ def register(request):
         fileobject = open("Logs.txt", 'a+')
         logger.log(file_object=fileobject, log_message='User already logged in redirecting to homepage')
         fileobject.close()
-        return redirect('pr1:home')
+        return redirect('HousePricing:home')
     else:
         form = CreateUserForm()
         fileobject = open("Logs.txt", 'a+')
@@ -103,7 +103,7 @@ def register(request):
                 messages.success(request, 'Account was created for ' + user)
                 logger.log(file_object=fileobject, log_message='User account created successfully redirecting to login page')
                 fileobject.close()
-                return redirect('pr1:login')
+                return redirect('HousePricing:login')
         context = {'form': form}
         fileobject.close()
         return render(request, 'register.html', context)  # redirecting to registration page
@@ -120,7 +120,7 @@ def model(request):
                 except Exception as e:
                     return render(request, 'result.html', {'data':'Please Upload an input file to continue'})
         else:
-            return redirect('pr1:login')
+            return redirect('HousePricing:login')
 
 
 def eda(request):
@@ -129,7 +129,7 @@ def eda(request):
             utils.statisticalinfo()
         return render(request, 'eda.html')
     else:
-        return redirect('pr1:login')
+        return redirect('HousePricing:login')
 
 
 def charts(request):
@@ -151,7 +151,7 @@ def charts(request):
             except Exception as e :
                 return render(request, 'result.html', {'data':'Please predict the input data to get the prediction insights'})
     else:
-        return redirect('pr1:login')
+        return redirect('HousePricing:login')
 
 def download(request):
     return utils.filedownload()

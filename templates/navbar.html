@@ -27,23 +27,23 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'pr1:home' %}">Home</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'HousePricing:home' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'pr1:input' %}">Input</a>
+          <a class="nav-link" href="{% url 'HousePricing:input' %}">Input</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'pr1:model' %}">Prediction</a>
+          <a class="nav-link" href="{% url 'HousePricing:model' %}">Prediction</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="{% url 'pr1:charts' %}">Insights</a>
+          <a class="nav-link" href="{% url 'HousePricing:charts' %}">Insights</a>
         </li>
       </ul>
  <div class="container-fluid">
     <a class="brand" href="#" style="color: white; text-decoration: none; margin-left: 300px" >House Price Prediction</a>
       </div>
       <a class="navbar-brand pull-right"><strong>Welcome {{request.user}}</strong></a>
-      <a href="{% url 'pr1:logout' %}" class="navbar-brand pull-right"><strong>Logout</strong></a>
+      <a href="{% url 'HousePricing:logout' %}" class="navbar-brand pull-right"><strong>Logout</strong></a>
     </div>
   </div>
 </nav>

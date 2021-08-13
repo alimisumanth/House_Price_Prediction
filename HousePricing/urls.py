@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-app_name = 'pr1'
+app_name = 'HousePricing'
 urlpatterns = [
 
     url('login/', views.loginpage, name='login'),

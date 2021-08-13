@@ -21,8 +21,8 @@
 		<div class="register">
 			<h1>Register</h1>
 			<div class="links">
-				<a href="{% url 'pr1:login' %}">Login</a>
-				<a href="{% url 'pr1:register' %}" class="active">Register</a>
+				<a href="{% url 'HousePricing:login' %}">Login</a>
+				<a href="{% url 'HousePricing:register' %}" class="active">Register</a>
 			</div>
 			<form  role="form" data-toggle="validator" method="post" autocomplete="off">
 				{% csrf_token %}

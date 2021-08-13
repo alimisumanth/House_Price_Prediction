@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pr1.apps.pr1Config'
+    'HousePricing.apps.pr1Config'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
-MEDIA_ROOT = os.path.join(BASE_DIR, 'pr1/static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'HousePricing/static')
 MEDIA_URL = '/media/'
 
 # Password validation
@@ -124,7 +124,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS=[
-    os.path.join(BASE_DIR, 'pr1')
+    os.path.join(BASE_DIR, 'HousePricing')
 ]
 
 # Default primary key field type
