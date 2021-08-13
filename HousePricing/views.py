@@ -12,7 +12,6 @@ from .logger import Logger
 
 
 logger = Logger()
-utils = utils()
 mlmodel = mlmodel()
 
 # user homepage
@@ -154,6 +153,6 @@ def charts(request):
         return redirect('HousePricing:login')
 
 def download(request):
-    return utils.filedownload()
+    return utils.filedownload(utils())
 def download_featureinfo(request):
-    return utils.featuresinfo_download()
+    return utils.featuresinfo_download(utils())

@@ -57,3 +57,32 @@
 2021-08-13/13:17:08		Input prediction started
 2021-08-13/13:17:09		Input prediction completed
 2021-08-13/13:17:09		Prediction data pushed to database
+2021-08-13/17:55:41		User authentication success, redirecting to homepage
+2021-08-13/17:55:44		input data description downloaded
+2021-08-13/17:55:55		House_pricing Table has been deleted successfully
+2021-08-13/17:55:55		predicted_House_pricing Table has been deleted successfully
+2021-08-13/17:55:55		Logout successfull
+2021-08-13/17:55:49		Fetching input data from database started
+2021-08-13/17:55:49		Fetching input data from database completed
+2021-08-13/17:55:49		Loading pickle file
+2021-08-13/17:55:55		Input prediction started
+2021-08-13/17:55:55		Input prediction completed
+2021-08-13/17:55:56		Prediction data pushed to database
+2021-08-13/17:56:15		User authentication failed
+2021-08-13/17:56:23		User authentication success, redirecting to homepage
+2021-08-13/17:59:41		input data description downloaded
+2021-08-13/17:59:50		 e
+2021-08-13/17:59:50		predicted_House_pricing Table has been deleted successfully
+2021-08-13/17:59:50		Logout successfull
+2021-08-13/17:59:59		User authentication success, redirecting to homepage
+2021-08-13/18:00:25		Pushing input data to database
+2021-08-13/18:00:26		Input data pushed to database
+2021-08-13/18:01:02		Fetching input data from database started
+2021-08-13/18:01:02		Fetching input data from database completed
+2021-08-13/18:01:02		Loading pickle file
+2021-08-13/18:01:03		Input prediction started
+2021-08-13/18:01:03		Input prediction completed
+2021-08-13/18:01:03		Prediction data pushed to database
+2021-08-13/18:01:41		House_pricing Table has been deleted successfully
+2021-08-13/18:01:41		predicted_House_pricing Table has been deleted successfully
+2021-08-13/18:01:41		Logout successfull
