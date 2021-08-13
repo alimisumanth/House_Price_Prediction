@@ -23,6 +23,6 @@
 
 
 .output_table tr td:last-child, thead td:last-child{
-	background-color: red;
+	background-color: green;
 	color:white;
 }
