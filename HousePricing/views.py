@@ -111,12 +111,18 @@ def register(request):
 # ml model
 def model(request):
         if request.user.is_authenticated:
+            fileobject = open("Logs.txt", 'a+')
             with sqlite3.connect("db.sqlite3") as c:
                 try:
                     data = pd.read_sql_query('SELECT * from House_pricing', c)
                     if data is not None:
-                        return render(request, 'model.html', mlmodel.model_prediction())
+                        logger.log(file_object=fileobject, log_message='Ml model prediction')
+                        fileobject.close()
+                        temp=mlmodel.model_prediction()
+                        return render(request, 'model.html',temp )
                 except Exception as e:
+                    logger.log(file_object=fileobject, log_message=str(e, 'utf-8'))
+                    fileobject.close()
                     return render(request, 'result.html', {'data':'Please Upload an input file to continue'})
         else:
             return redirect('HousePricing:login')

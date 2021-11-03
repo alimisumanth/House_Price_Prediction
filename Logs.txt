@@ -86,3 +86,8 @@
 2021-08-13/18:01:41		House_pricing Table has been deleted successfully
 2021-08-13/18:01:41		predicted_House_pricing Table has been deleted successfully
 2021-08-13/18:01:41		Logout successfull
+2021-08-23/18:52:50		User authentication success, redirecting to homepage
+2021-08-23/18:53:57		 e
+2021-08-23/18:53:57		 e
+2021-08-23/18:53:57		Logout successfull
+2021-11-03/12:28:13		User authentication success, redirecting to homepage

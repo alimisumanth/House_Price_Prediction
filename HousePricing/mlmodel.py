@@ -17,6 +17,7 @@ import pandas as pd
 import sqlite3
 import joblib
 from .logger import Logger
+import xgboost
 
 class mlmodel:
     def __init__(self):
@@ -35,6 +36,7 @@ class mlmodel:
                 Version: 1.0
                 Revisions: None
         """
+        self.logger.log(file_object=self.fileobject,log_message='ML Model')
         with sqlite3.connect("db.sqlite3") as c:
             try:
                 self.logger.log(file_object=self.fileobject,log_message='Fetching input data from database started')
