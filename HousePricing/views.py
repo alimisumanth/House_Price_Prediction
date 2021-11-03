@@ -121,11 +121,12 @@ def model(request):
                         temp=mlmodel.model_prediction()
                         return render(request, 'model.html',temp )
                 except Exception as e:
-                    logger.log(file_object=fileobject, log_message=str(e, 'utf-8'))
                     fileobject.close()
                     return render(request, 'result.html', {'data':'Please Upload an input file to continue'})
         else:
             return redirect('HousePricing:login')
+
+
 
 
 def eda(request):
