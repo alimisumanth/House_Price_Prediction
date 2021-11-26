@@ -2,8 +2,8 @@
 This projet aims to predict the house prices using machine learning<br>
 Dataset used for trainng : Ames dataset
 
-## Requirements:
-Python3
+## Prerequisite
+Python3 installed 
 
 ## Installing required libraries
 ```bash
